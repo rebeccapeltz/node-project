@@ -81,4 +81,6 @@ https://devcenter.heroku.com/articles/node-best-practices
  ```npm install --save --save-exact morgan```
 
 #### Naming  
-lowercase filename upper camel var names
+lowercase filename upper camel var names  
+
+This project is licensed under the terms of the MIT license.
