@@ -27,15 +27,15 @@ To test in your root as TA's will:  ```eslint *```
 ```javascript
   require('gulp-watch');```  
 
-# Setup .gitignore
-[See gitignore.io to help setup ]([gitignore.io will help create .gitignore](https://www.google.com)
+### Setup .gitignore
+[See gitignore.io to help setup](https://www.google.com)  
 Enter Node, OSX, Vim(if you use it) to git all hidden files from apps you use
 Rule of thumb: ignore generated or data files as well as env variables
 
-How to remove node-modules if accidentally commit:  
+How to remove node-modules if accidentally commit:    
 `echo 'node_modules' >> .gitignore`  
 `$ git rm -r --cached node_modules`  
-`$ git commit -am 'ignore node_modules`
+`$ git commit -am 'ignore node_modules'`
 
 ### Setup Assignment:
 Create a folder under ~/cf/401 (for example)
