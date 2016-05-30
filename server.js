@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const errorHandler = require('./lib/error_handling');
 
 const dbPort = process.env.MONGODB_URI || 'mongodb://localhost/dev_db';
+console.log('dbPort', dbPort);
 
 mongoose.connect(dbPort);
 
