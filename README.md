@@ -1,20 +1,20 @@
 ## Setup Project
 ### Linting
-+ use the class `.eslintrc` and `.eslintignore`
++ use the class `.eslintrc` and `.eslintignore` files
 + put the files in your project and don't gitignore  
-+ The class falls rules include Single quotes, 2 spaces for tabs  
++ The class lint file rules include Single quotes, 2 spaces for tabs  
 + good practice to copy `.eslintrc` and `.eslintignore`  into ~/ - this allows eslint to find them if they're not in the project
 
 #### Testing Lint  
 ```npm install -g eslint```  
--->in your root ```eslint *```  
+To test in your root as TA's will:  ```eslint *```  
 
 
   #### Sublime:
   sublime-linter, csslint, eslint
 
   #### Atom:
-  linter, linter-eslint (pagackages)
+  linter, linter-eslint (packages)
 
   ### What about variables not used?
 
@@ -31,18 +31,18 @@
   require('gulp-watch');```
 
 ### Setup .gitignore
-[See gitignore.io to help setup ]([I'm an inline-style link](https://www.google.com)
-Enter Node OSX Vim(if you use it) to git all ignores directories  
+[See gitignore.io to help setup ]([gitignore.io will help create .gitignore](https://www.google.com)
+Enter Node, OSX, Vim(if you use it) to git all hidden files from apps you use
 Rule of thumb: ignore generated or data files as well as env variables
 
 
-how to remove node-modules if accidentally commit:  
+How to remove node-modules if accidentally commit:  
 ```echo 'node_modules' >> .gitignore
 $ git rm -r --cached node_modules
 $ git commit -am 'ignore node_modules'```
 
 ### Setup Assignment:
-Create a directory under ~/cf/401 (for example)
+Create a folder under ~/cf/401 (for example)
 
 Fork assignment and clone in above directory
 
@@ -52,25 +52,48 @@ Fork assignment and clone in above directory
 
   Package.json should contain the following to all running code and test from npm.
 
-  ```    "scripts": {
-    	"start": "node server.js",
-    	"test": "mocha"
-  	},```
+  `"scripts": {"start": "node server.js",`  
+`"test": "./node_modules/mocha/bin/mocha"},`
 
 ### Directory structure:
 **root:**   
-server.js or index.js (can additional test.js)  
+server.js OR index.js OR app.js  
 gulpfile.js  
 .eslintrc  
 .eslintignore  
 .gitignore  
-package.json (fill it out but it will come from npm init)  
+package.json (fill it out but it will come from npm init, set version to 0.1.0, set license to MIT)  
 **folders:**  
-/db  (this will be gitignores)
+/db  (this should be gitignored)  
 /lib  
 /model  
 /route  
 /test  
+
+### MIT license text  
+You can put this in a file named LICENSE.txt and refer to it in your README.md  
+ > MIT License
+
+ > Copyright (c) 2016 <your name>
+
+ > Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+>
 
 #### Have a Look at this when you have time:
 
@@ -81,6 +104,8 @@ https://devcenter.heroku.com/articles/node-best-practices
  ```npm install --save --save-exact morgan```
 
 #### Naming  
-lowercase filename upper camel var names  
+Lowercase filename and upper camel var names; for exmaple   
+`const MyModule = require('my-module');`
 
-This project is licensed under the terms of the MIT license.
+
+This project is licensed under the terms of the [MIT license](LICENSE.txt).
