@@ -34,7 +34,7 @@ iceCreamRouter.put('/', jsonParser, (req, res, next) => {
 
 iceCreamRouter.delete('/:id', (req, res, next) => {
   let _id = req.params.id;
-  IceCream.findOneAndRemove({_id}, (err, icecream) => {
+  IceCream.findOneAndRemove({_id: _id}, (err, icecream) => {
     if(err) return next(err);
     let message = 'successfully deleted';
     res.json({message:message, data:icecream});
