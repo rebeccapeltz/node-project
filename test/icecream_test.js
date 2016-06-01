@@ -3,19 +3,17 @@
 const chai = require('chai');
 const chaiHTTP = require('chai-http');
 const mongoose = require('mongoose');
-//const IceCream = require('../model/icecream');
+const IceCream = require('../model/icecream');
 chai.use(chaiHTTP);
 
 const expect = chai.expect;
 const request = chai.request;
-const dbPort = process.env.MONGOLAB_URI;
 
 process.env.MONGOLAB_URI = 'mongodb://localhost/test_db';
 require('../index');
 
 describe('Testing CRUD routes IceCream', () => {
   after((done) => {
-    process.env.MONGOLAB_URI = dbPort;
     mongoose.connection.db.dropDatabase(() => {
       done();
     });
@@ -55,28 +53,28 @@ describe('Testing CRUD routes IceCream', () => {
   });
 
   describe('tests that need ice cream already', () => {
-    // let testIceCream;
-    // beforeEach((done) => {
-    //   let newIceCream = new IceCream({flavor: 'vanilla', scoops: 2, vessel: 'waffle cone'});
-    //   newIceCream.save((err, icecream) => {
-    //     testIceCream = icecream;
-    //     done();
-    //   });
-    // });
+    let testIceCream;
+    beforeEach((done) => {
+      let newIceCream = new IceCream({flavor: 'vanilla', scoops: 2, vessel: 'waffle cone'});
+      newIceCream.save((err, icecream) => {
+        testIceCream = icecream;
+        done();
+      });
+    });
 
-    // it('should update a message', (done) => {
-    //   testIceCream.flavor = 'coffee';
-    //   request('localhost:3000')
-    //   .put('/icecream/')
-    //   .send(testIceCream)
-    //   .end((err, res) => {
-    //     expect(err).to.eql(null);
-    //     expect(res).to.have.status(200);
-    //     console.log(res.body);
-    //     expect(res.body.message).to.eql('successfully updated');
-    //     done();
-    //   });
-    // });
+    it('should update a message', (done) => {
+      testIceCream.flavor = 'coffee';
+      request('localhost:3000')
+      .put('/icecream/')
+      .send(testIceCream)
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res).to.have.status(200);
+        console.log(res.body);
+        expect(res.body.message).to.eql('successfully updated');
+        done();
+      });
+    });
     //
     // it('should get rid of perfectly good ice cream', (done) => {
     //   request('localhost:3000')
