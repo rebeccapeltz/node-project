@@ -55,14 +55,14 @@ describe('Testing CRUD routes IceCream', () => {
   });
 
   describe('tests that need ice cream already', () => {
-    let testIceCream;
-    beforeEach((done) => {
-      let newIceCream = new IceCream({flavor: 'vanilla', scoops: 2, vessel: 'waffle cone'});
-      newIceCream.save((err, icecream) => {
-        testIceCream = icecream;
-        done();
-      });
-    });
+    // let testIceCream;
+    // beforeEach((done) => {
+    //   let newIceCream = new IceCream({flavor: 'vanilla', scoops: 2, vessel: 'waffle cone'});
+    //   newIceCream.save((err, icecream) => {
+    //     testIceCream = icecream;
+    //     done();
+    //   });
+    // });
 
     // it('should update a message', (done) => {
     //   testIceCream.flavor = 'coffee';
