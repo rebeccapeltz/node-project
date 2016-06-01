@@ -75,16 +75,16 @@ describe('Testing CRUD routes IceCream', () => {
         done();
       });
     });
-    //
-    // it('should get rid of perfectly good ice cream', (done) => {
-    //   request('localhost:3000')
-    //   .delete('/icecream/' + testIceCream._id)
-    //   .end((err, res) => {
-    //     expect(err).to.eql(null);
-    //     expect(res).to.have.status(200);
-    //     expect(res.body.message).to.eql('successfully deleted');
-    //     done();
-    //   });
-    // });
+
+    it('should get rid of perfectly good ice cream', (done) => {
+      request('localhost:3000')
+      .delete('/icecream/' + testIceCream._id)
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.eql('successfully deleted');
+        done();
+      });
+    });
   });
 });
