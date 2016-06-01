@@ -124,3 +124,5 @@ The `ps aux` command finds all processes and the pipe to `grep mongo` shows just
 ###### To Kill it
 To actually terminate the process, find the id (the number after the  owner, in this case 14191) of the process and call  
 `kill -9 14191`
+
+https://travis-ci.org/rebeccapeltz/node-project.svg?branch=master

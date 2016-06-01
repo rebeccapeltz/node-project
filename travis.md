@@ -1,9 +1,16 @@
 
 #### Install travis
+Create an account on https://travis-ci.org/ and login  
+
+
 (need ruby 2.0)  
 more information https://github.com/travis-ci/travis.rb#installation  
 `gem install travis -v 1.8.2 --no-rdoc --no-ri`  
+`sudo gem install travis`  
+
 `travis version`  
+"Shell completion not installed. Would you like to install it now? |y| y"  
+
 should be 1.8.2
 
 
@@ -33,14 +40,18 @@ script:
   - npm run test
   - npm run lint
 ```
-`travis lint`   checks that your travis file is OK
+`travis lint`   checks that your travis file is OK  
+"Hooray, .travis.yml looks valid :)"
+
+#### Login
+`travis login`  use github login  
+
 
 #### Enable travis for this repo
 `travis enable`  
 "detected repository is xxxx, is this correct yes|no
 triggering sync"  
 
-`travis login`  use github login  
 
 `travis open`   like heroku open - if you're logged in to the browser you'll get to this repo
 
