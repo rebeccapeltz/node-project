@@ -41,7 +41,10 @@ script:
   - npm run lint
 ```
 `travis lint`   checks that your travis file is OK  
-"Hooray, .travis.yml looks valid :)"
+"Hooray, .travis.yml looks valid :)"  
+
+known issue with travis lint when you have addons:  
+https://github.com/travis-ci/travis-ci/issues/3694
 
 #### Login
 `travis login`  use github login  
