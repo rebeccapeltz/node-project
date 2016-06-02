@@ -9,7 +9,7 @@ chai.use(chaiHTTP);
 const expect = chai.expect;
 const request = chai.request;
 
-process.env.MONGOLAB_URI = 'mongodb://localhost/test_db';
+process.env.MONGODB_URI = 'mongodb://localhost/test_db';
 require('../index');
 
 describe('Testing CRUD routes IceCream', () => {
