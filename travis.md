@@ -5,7 +5,9 @@ Create an account on https://travis-ci.org/ and login
 
 (need ruby 2.0)  
 more information https://github.com/travis-ci/travis.rb#installation  
-`gem install travis -v 1.8.2 --no-rdoc --no-ri`  
+`gem install travis -v 1.8.2 --no-rdoc --no-ri`   
+
+If you ahve permission errors with the above command use sudo:   
 `sudo gem install travis`  
 
 `travis version`  
@@ -14,26 +16,22 @@ more information https://github.com/travis-ci/travis.rb#installation
 should be 1.8.2
 
 
-
 #### create a travis config 'travis.yml'
 create .travis.yml (not ignored)  
-The "addons" sections is need when your app uses bcrypt.  
+The "addons" sections is needed for mongo. There is an addon for bcrypt. See the 'travis.yml.bak' file for this addon.  
 
 ```
 language: node_js
 node_js:
-  - '4'
+  - 4
 services:
   - mongodb
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - mongodb-3.2.4-precise
     packages:
-      - gcc-4.8
-      - g++-4.8
-env:
-  - CXX=g++-4.8
+    - mongodb-org-server
 sudo: required
 before_script: npm install
 script:
@@ -56,7 +54,8 @@ https://github.com/travis-ci/travis-ci/issues/3694
 triggering sync"  
 
 
-`travis open`   like heroku open - if you're logged in to the browser you'll get to this repo
+`travis open`   
+like heroku open - if you're logged in to the browser you'll get to this repo
 
 You can add status image to your README.md - will tell if you're passing tests on most recent push
 click on "unknown" next to "build" and choose markdown 9:22

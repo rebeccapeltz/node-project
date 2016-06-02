@@ -22,7 +22,10 @@
         <td>
             Deploy the app
         </td>
-        <td> "heroku create xxxx-xxxx-xxxx-xxxx<br> I like to make up my own name but I follow their pattern `git push heroku master` <br>`heroku ps:scale web=1` get an instance running<br> `heroku open` this will open a browser and attempt to load your "/" path `heroku open icecream` this will open to a path you have set for example: https://becky-node-sun-777.herokuapp.com/icecream <br> <b>NOTE: this will probably fail unless you've already set up your mongo addon<b>
+        <td> "heroku create xxxx-xxxx-xxxx-xxxx<br>  
+         I like to make up my own name but I follow their pattern  
+         `git push heroku master` <br>`heroku ps:scale web=1` get an instance running<br> `heroku open` this will open a browser and attempt to load your "/" path  
+         `heroku open icecream` this will open to a path you have set for example: https://becky-node-sun-777.herokuapp.com/icecream <br> <b>NOTE: this will probably fail unless you've already set up your mongo addon<b>
         </td>
     </tr>
     <tr>
