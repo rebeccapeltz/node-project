@@ -63,4 +63,6 @@ click on "unknown" next to "build" and choose markdown 9:22
 copy to your README.md
 
 `git push`  pushing to git should activate a build on travis  
-`travis open`  go watch the build  - click on branches to see the build in process
+`travis open`  go watch the build  - click on branches to see the build in process  
+
+Duncan made a video on using travis: https://www.youtube.com/watch?v=n9fgZad0TIo&feature=youtu.be
