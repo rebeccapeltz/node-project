@@ -14,6 +14,13 @@ iceCreamRouter.get('/', (req, res, next) => {
   });
 });
 
+iceCreamRouter.get('/:id', (req, res, next) => {
+  IceCream.find({_id: req.params.id}, (err, icecream) => {
+    if(err) return next(err);
+    res.json(icecream);
+  });
+});
+
 iceCreamRouter.post('/', jsonParser, (req, res, next) => {
   let newIceCream = new IceCream(req.body);
   newIceCream.save((err, icecream) => {
