@@ -10,6 +10,8 @@ addons:
     packages:
     - mongodb-org-server
 sudo: required
+install:
+  - npm install -g eslint mocha chai
 before_script: npm install
 script:
   - npm run test

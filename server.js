@@ -1,4 +1,5 @@
 'use strict';
+//curl localhost:5000/icecream curl -H "Content-Type:application/json"  -X POST -d '{"flavor" :"mint","scoops":2,"vessel":"cup"}'
 
 const express = require('express');
 const app = express();
