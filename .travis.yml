@@ -9,6 +9,8 @@ addons:
     - mongodb-3.2.4-precise
     packages:
     - mongodb-org-server
+env:
+  - CXX=g++-4.8
 sudo: required
 install:
   - npm install -g eslint mocha chai
