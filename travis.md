@@ -12,7 +12,7 @@ mac: check ruby -v should be v2
 more information https://github.com/travis-ci/travis.rb#installation  
 `gem install travis -v 1.8.2 --no-rdoc --no-ri`   
 
-If you ahve permission errors with the above command use sudo:   
+If you have permission errors with the above command use sudo:   
 `sudo gem install travis`  
 
 `travis version`  
@@ -22,7 +22,7 @@ should be 1.8.2
 
 
 #### create a travis config 'travis.yml'
-create .travis.yml (not ignored)  
+use the .travis.yml (should no be git ignored) -  you can modify but be care to keep 
 The "addons" sections is needed for mongo. There is an addon for bcrypt. See the 'travis.yml.bak' file for this addon.  
 
 ```
