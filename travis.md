@@ -4,6 +4,11 @@ Create an account on https://travis-ci.org/ and login
 
 
 (need ruby 2.0)  
+ruby -v
+#### Installing ruby
+windows: http://rubyinstaller.org/
+mac: check ruby -v should be v2
+
 more information https://github.com/travis-ci/travis.rb#installation  
 `gem install travis -v 1.8.2 --no-rdoc --no-ri`   
 
