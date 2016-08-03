@@ -41,18 +41,18 @@ describe('Testing CRUD routes MilkShake', () => {
       done();
     });
   });
-  // it('should create a milkshake', (done) => {
-  //   request('localhost:3000')
-  //   .post('/milkshake')
-  //   .send({flavor: 'strawberry', scoops: 3, milkRichness: 'whole milk'})
-  //   .end((err, res) => {
-  //     expect(err).to.eql(null);
-  //     expect(res).to.have.status(200);
-  //     expect(res.body.flavor).to.eql('strawberry');
-  //     expect(res.body.scoops).to.eql(3);
-  //     done();
-  //   });
-  // });
+  it('should create a milkshake', (done) => {
+    request('localhost:3000')
+    .post('/milkshake')
+    .send({flavor: 'strawberry', scoops: 3, milkRichness: 'whole milk'})
+    .end((err, res) => {
+      expect(err).to.eql(null);
+      expect(res).to.have.status(200);
+      expect(res.body.flavor).to.eql('strawberry');
+      expect(res.body.scoops).to.eql(3);
+      done();
+    });
+  });
 
   describe('tests that need an existing milkshake', () => {
     let testMilkShake;
@@ -64,18 +64,19 @@ describe('Testing CRUD routes MilkShake', () => {
       });
     });
 
-    // it('should update a message', (done) => {
-    //   testMilkShake.scoops = 2;
-    //   request('localhost:3000')
-    //   .put('/milkshake/')
-    //   .send(testMilkShake)
-    //   .end((err, res) => {
-    //     expect(err).to.eql(null);
-    //     expect(res).to.have.status(200);
-    //     expect(res.body.message).to.eql('successfully updated');
-    //     done();
-    //   });
-    // });
+    it('should update a message', (done) => {
+      //testMilkShake.scoops = 2;
+      let update = {'scoops':2};
+      request('localhost:3000')
+      .put('/milkshake/' + testMilkShake._id)
+      .send(update)
+      .end((err, res) => {
+        expect(err).to.eql(null);
+        expect(res).to.have.status(200);
+        expect(res.body.message).to.eql('successfully updated');
+        done();
+      });
+    });
 
     it('should get rid of perfectly good milkshakes', (done) => {
       request('localhost:3000')

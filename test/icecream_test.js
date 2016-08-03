@@ -63,10 +63,10 @@ describe('Testing CRUD routes IceCream', () => {
     });
 
     it('should update a message', (done) => {
-      testIceCream.flavor = 'coffee';
+      let update = {'flavor':'coffee'};
       request('localhost:3000')
-      .put('/icecream/')
-      .send(testIceCream)
+      .put('/icecream/'+testIceCream._id)
+      .send(update)
       .end((err, res) => {
         expect(err).to.eql(null);
         expect(res).to.have.status(200);

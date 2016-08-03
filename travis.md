@@ -20,9 +20,8 @@ If you have permission errors with the above command use sudo:
 
 should be 1.8.2
 
-
 #### create a travis config 'travis.yml'
-use the .travis.yml (should no be git ignored) -  you can modify but be care to keep 
+use the .travis.yml (should no be git ignored) -  you can modify but be careful to keep format
 The "addons" sections is needed for mongo. There is an addon for bcrypt. See the 'travis.yml.bak' file for this addon.  
 
 ```
@@ -48,6 +47,8 @@ script:
 
 known issue with travis lint when you have addons:  
 https://github.com/travis-ci/travis-ci/issues/3694
+
+## From within the git project folder:
 
 #### Login
 `travis login`  use github login  
