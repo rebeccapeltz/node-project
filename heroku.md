@@ -1,4 +1,4 @@
-### Summary of Steps to deploy Node and Mongo
+### Summary of Steps to deploy Node and Mongo to Heroku
 <table>
     <tr>
         <td> Steps</td>
@@ -22,11 +22,11 @@
         <td>
             Deploy the app
         </td>
-        <td> "heroku create xxxx-xxxx-xxxx-xxxx<br>  
-         You name can be anything not already in use.   
+        <td> `heroku create xxxx-xxxx-xxxx-xxxx`
+         Your name can be anything not already in use.   
          `git push heroku master` <br>`heroku ps:scale web=1` get an instance running<br> `heroku open` this will open a browser and attempt to load your "/" path  
          `heroku open icecream` this will open to a path you have set  
-         for example: https://becky-401-8.herokuapp.com/icecream <br> <b>NOTE: this will probably fail unless you've already set up your mongo addon<b>
+         for example: https://becky-401-8.herokuapp.com/icecream <br> <b>NOTE: this will fail unless you've already set up your mongo addon<b>
         </td>
     </tr>
     <tr>
@@ -55,7 +55,7 @@
 <td>
           This is to get the project running locally.
            You may not need this if you have already got your project running locally.  
-           `npm init`  
+           `npm init`,
             `npm install`  
             </td>
     </tr>
@@ -74,8 +74,7 @@
     <tr>
         <td>
             Push local changes</td>
-        <td> `git add .` <br> `git commit -m"reason for change"` <br> `git push heroku master` push to heroku repo<br> `git push origin master` push to git repo<br> `heroku open` open browser<br> Now you can test with Postman,httpie, cUrl or browser <br><b>NOTE: you still may have errors if you are
-            deploying an app with addons</b>
+        <td> `git add .` <br> `git commit -m"reason for change"` <br> `git push heroku master` push to heroku repo<br> `git push origin master` push to git repo<br> `heroku open` open browser<br> Now you can test with Postman,httpie, cUrl or browser <br><b>NOTE: this will fail unless you've already set up your mongo addon</b>
         </td>
     </tr>
     <tr>
@@ -103,14 +102,14 @@
         You can create an <b>.env</b> file to store config variables that heroku will use <b>locally</b>, example below<br>
         `MONGODB_URI='mongodb://localhost/dev_db'`<br>
         use the following command to set config variables that will be used on the cloud <br>`heroku config:set MONGODB_URI='mongodb://dbuser:dbpass@host:port/dbname '` <br> You can view all you config settings with `heroku config` <br>
-         To see your MONGODB_URL use `heroku config | grep MONGODB_URI`. <br> You can also go to your heroku dashboard in the browser and drill down from your app to resource settings to see your config values.</td>
+         To see your MONGODB_URL use `heroku config | grep MONGODB_URI`. <br> Also see app configs in online dashobard.</td>
     </tr>
     <tr>
         <td>
             <b>Provision a database</b> </td>
         <td>Modify your connect code to use either local process.env variables or a default:<br>
         `const dbServer = process.env.MONGODB_URI || 'mongodb://localhost/dev_db ';`<br>
-        `console.log('connecting to dbServer ', dbServer);`<br> `mongoose.connect(dbServer);` 
+        `console.log('connecting to dbServer ', dbServer);`<br> `mongoose.connect(dbServer);`
         <br>`heroku open` should now work</td>
     </tr>
 </table>
