@@ -14,18 +14,19 @@
     <tr>
         <td>
             Prepare the app </td>
-        <td>I recommend creating a new repo and making your app master rather than using a forked repo<br>
-         `git clone <your app>` into your new working folder or remove git from an existing folder and `git init`
-                <your app></td>
+        <td>Create a new repo and making your app master rather than using a forked repo<br>
+         `git clone <your app>` into your new working folder and remove .git from an existing folder and `git init` (https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/)
+                </td>
     </tr>
     <tr>
         <td>
             Deploy the app
         </td>
         <td> "heroku create xxxx-xxxx-xxxx-xxxx<br>  
-         I like to make up my own name but I follow their pattern  
+         You name can be anything not already in use.   
          `git push heroku master` <br>`heroku ps:scale web=1` get an instance running<br> `heroku open` this will open a browser and attempt to load your "/" path  
-         `heroku open icecream` this will open to a path you have set for example: https://becky-node-sun-777.herokuapp.com/icecream <br> <b>NOTE: this will probably fail unless you've already set up your mongo addon<b>
+         `heroku open icecream` this will open to a path you have set  
+         for example: https://becky-401-8.herokuapp.com/icecream <br> <b>NOTE: this will probably fail unless you've already set up your mongo addon<b>
         </td>
     </tr>
     <tr>
@@ -62,8 +63,7 @@
         <td>
             Run the app locally</td>
         <td> `heroku local` <br>
-         <b>heroku manages ports: for local server it uses 5000 but on the cloud that may change</b>.  
-          To manage this you will want to change your server listen to something which will let heroku assign the port when it is running your server:  
+         <b>heroku manages ports: for local server it uses 5000 but on the cloud that may change</b>.Modify server listen to make port variable and accessed from process.env.PORT.   
          ```
          app.listen(process.env.PORT
             || 3000, () => { console.log('up on '+ process.env.PORT
@@ -74,7 +74,7 @@
     <tr>
         <td>
             Push local changes</td>
-        <td> `git add .` <br> `git commit -m"reason for change"` <br> `git push heroku master` push to heroku repo<br> `git push origin master` push to git repo<br> `heroku open` open browser<br> Now you can test with Postman, cUrl or browser <br><b>NOTE: you still may have errors if you are
+        <td> `git add .` <br> `git commit -m"reason for change"` <br> `git push heroku master` push to heroku repo<br> `git push origin master` push to git repo<br> `heroku open` open browser<br> Now you can test with Postman,httpie, cUrl or browser <br><b>NOTE: you still may have errors if you are
             deploying an app with addons</b>
         </td>
     </tr>
@@ -87,8 +87,7 @@
             *** Please verify your account to install this add-on plan (please enter a credit card) For more
             information, see https://devcenter.heroku.com/categories/billing Verify now at https://heroku.com/verify *** <br>
             After verified key in `heroku addons:create mongolab` again.  
-            <br>
-            NOTE: You will need a credit card which you can key in a heroku.com/verify
+
         </td>
     </tr>
     <tr>
@@ -100,7 +99,8 @@
 <td>
 
         <b>Define config vars</b> </td>
-        <td> Create an <b>.env</b> file to store config variables that heroku will use <b>locally</b>, example below<br>
+        <td> MONDGODB_URI gets added to heroku config when you use addons: command above.  
+        You can create an <b>.env</b> file to store config variables that heroku will use <b>locally</b>, example below<br>
         `MONGODB_URI='mongodb://localhost/dev_db'`<br>
         use the following command to set config variables that will be used on the cloud <br>`heroku config:set MONGODB_URI='mongodb://dbuser:dbpass@host:port/dbname '` <br> You can view all you config settings with `heroku config` <br>
          To see your MONGODB_URL use `heroku config | grep MONGODB_URI`. <br> You can also go to your heroku dashboard in the browser and drill down from your app to resource settings to see your config values.</td>
@@ -108,10 +108,9 @@
     <tr>
         <td>
             <b>Provision a database</b> </td>
-        <td>You can modify your connect code to use either local .env variables or code config variables or a default:<br>
-        `const dbPort = process.env.MONGODB_URI || 'mongodb://localhost/dev_db ';`<br>
-        `console.log('dbPort ', dbPort);`<br> `mongoose.connect(dbPort);`<br>
-
+        <td>Modify your connect code to use either local process.env variables or a default:<br>
+        `const dbServer = process.env.MONGODB_URI || 'mongodb://localhost/dev_db ';`<br>
+        `console.log('connecting to dbServer ', dbServer);`<br> `mongoose.connect(dbServer);` 
         <br>`heroku open` should now work</td>
     </tr>
 </table>
