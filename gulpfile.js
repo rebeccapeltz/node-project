@@ -8,7 +8,7 @@ gulp.task('default', ['lint', 'test'], () => {
 });
 
 gulp.task('lint', () => {
-  gulp.src('/server.js')
+  gulp.src('./**/*.js')
   .pipe(eslint())
   .pipe(eslint.format());
 });
