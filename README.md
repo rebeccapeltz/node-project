@@ -1,4 +1,4 @@
-## Project Setup
+## Project Setup 
 ### Linting
 + use the class `.eslintrc` and `.eslintignore` files
 + put the files in your project and don't gitignore  
